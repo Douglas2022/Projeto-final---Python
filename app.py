@@ -14,16 +14,22 @@ def ConectarBanco():
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
-    pass
+    return render_template('index.html')
+
+@app.route('/login',methods=['GET', 'POST'])
+def login():
+    return render_template('login.html')
+
 
 
 @app.route('/cadastro', methods=['GET', 'POST'])
-def Cadastro():
+def cadastro():
     titulo = 'Página Inicial'
     resultado = None
     email = senha = None
 
     if request.method == 'POST': 
+        nome = request.form.get('nome')
         email = request.form.get('email')
         senha = request.form.get('senha')
         print(f'Email: {email}, Senha: {senha}')
@@ -50,7 +56,7 @@ def Cadastro():
             return render_template('index.html', titulo=titulo, mensagem='Email não encontrado.')
 
    
-    return render_template('index.html', titulo=titulo)
+    return render_template('cadastro.html', titulo=titulo)
 
 @app.route('/cliente', methods=['GET', 'POST'])
 def Cliente():

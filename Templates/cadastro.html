@@ -1,11 +1,5 @@
-
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cadastro de Produto</title>
-    <style>
+{% extends 'base.html' %}
+<style>
         body {
             font-family: Arial, sans-serif;
             background-color: #0a2fc2;
@@ -58,40 +52,67 @@
             background-color: #0097e6;
         }
     </style>
-</head>
-<body>
-    <div class="container-fluid container">
-        <div class="row">
-            <div class="col-5">
-            <h2>Cadastro de Produto</h2>
-        <form method="POST" action="{{ url_for('Cadastro') }}">
-            <label for="nome">Nome do Produto:</label>
-            <input type="text" id="nome" name="nome" required>
 
-            <label for="descricao">Descrição:</label>
-            <textarea id="descricao" name="descricao" rows="3"></textarea>
+{% block conteudo %}
 
-            <label for="preco">Preço (R$):</label>
-            <input type="number" id="preco" name="preco" step="0.01" required>
-
-            <label for="categoria">Categoria:</label>
-            <select id="categoria" name="categoria" required>
-                <option value="">Selecione</option>
-                <option value="eletronico">Cereais</option>
-                <option value="roupa">Bebidas</option>
-                <option value="alimento">Limpeza</option>
-                <option value="outros">Frutas e Verduras</option>
-            </select>
-
-            <button type="submit">Cadastrar Produto</button>
-        </form>
-    </div>
-
+<div class="container titulo">
+  <div class="row justify-content-center border-dark">
+    <div class="col-10 titulo">
+      <div
+        class="container min-vh-100 d-flex align-items-center justify-content-center bg-light"
+      >
+        <div class="col-md-6 bg-white p-5 rounded shadow">
+          <h2 class="mb-4 text-center text-bg-danger text-aling-center">
+            Cadastro de Usuário
+          </h2>
+          <form method="POST" action="{{ url_for('cadastro') }}">
+            <div class="mb-3">
+              <label for="nome" class="form-label">Nome completo</label>
+              <input
+                type="text"
+                class="form-control"
+                id="nome"
+                name="nome"
+                required
+              />
             </div>
-
+            <div class="mb-3">
+              <label for="email" class="form-label">Endereço de Email</label>
+              <input
+                type="email"
+                class="form-control"
+                id="email"
+                name="email"
+                required
+              />
+            </div>
+            <div class="mb-3">
+              <label for="senha" class="form-label">Senha</label>
+              <input
+                type="password"
+                class="form-control"
+                id="senha"
+                name="senha"
+                required
+              />
+            </div>
+            <div class="mb-3">
+              <label for="tipo" class="form-label">Tipo de usuário</label>
+              <select class="form-select" id="tipo" name="tipo">
+                <option value="cliente">Cliente</option>
+                <option value="administrador">Administrador</option>
+              </select>
+            </div>
+            <div class="d-grid">
+              <button type="submit" class="btn btn-primary">Cadastrar</button>
+            </div>
+          </form>
         </div>
-       
-</body>
-</html>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}
 
 
