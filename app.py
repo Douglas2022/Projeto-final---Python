@@ -5,10 +5,10 @@ app = Flask(__name__)
 
 def ConectarBanco():
     conexao = my.connect(
-        user='user',
+        user='root',
         password='1234',
         database='SuperSelectD',
-        host='host'
+        host='localhost'
     )
     return conexao
 
@@ -30,30 +30,14 @@ def cadastro():
 
     if request.method == 'POST': 
         nome = request.form.get('nome')
+        tipo = request.form.get('tipo')
         email = request.form.get('email')
         senha = request.form.get('senha')
-        print(f'Email: {email}, Senha: {senha}')
-
+        print(f'Email: {email}, Senha: {senha},nome:{nome}, tipo:{tipo}')
+#Connectar o banco
         conexao = ConectarBanco()
-        cursor = conexao.cursor(dictionary=True)
-        sql = 'SELECT * FROM usuarios WHERE email = %s'
-        cursor.execute(sql, (email,))  
-        resultado = cursor.fetchone()
-        cursor.close()
-        conexao.close()
-
-        if resultado:
-            if senha == resultado['senha']:
-                if resultado['tipo'] == 'cliente':
-                    return render_template('cliente.html', usuarios=resultado)
-                elif resultado['tipo'] == 'administrador':
-                    return render_template('administrador.html', usuarios=resultado)
-                else:
-                    return render_template('index.html', titulo=titulo, mensagem='Tipo de usuário desconhecido.')
-            else:
-                return render_template('index.html', titulo=titulo, mensagem='Senha incorreta.')
-        else:
-            return render_template('index.html', titulo=titulo, mensagem='Email não encontrado.')
+        cursor.execute()
+        cursor.feetchone()
 
    
     return render_template('cadastro.html', titulo=titulo)

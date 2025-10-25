@@ -14,24 +14,19 @@ CREATE TABLE usuarios (
 );
 
 -- Inserindo 10 clientes
-INSERT INTO usuarios (nome, email, senha, tipo, cpf, endereco, telefone, data_nascimento) VALUES
-('Daniel Colares', 'daniel@example.com', '123456', 'cliente', '123.456.789-00', 'Rua das Flores, 100 - Fortaleza', '(85) 99999-9999', '1985-10-10'),
-('Maria Souza', 'maria@example.com', 'senha123', 'cliente', '234.567.890-11', 'Av. Central, 200 - Fortaleza', '(85) 98888-8888', '1990-03-15'),
-('João Lima', 'joao@example.com', 'abc123', 'cliente', '345.678.901-22', 'Rua Verde, 55 - Caucaia', '(85) 97777-7777', '1995-05-25'),
-('Ana Beatriz', 'ana@example.com', 'senha456', 'cliente', '456.789.012-33', 'Rua das Acácias, 120 - Maracanaú', '(85) 96666-6666', '1988-09-09'),
-('Carlos Mendes', 'carlos@example.com', 'qwerty', 'cliente', '567.890.123-44', 'Rua Azul, 300 - Eusébio', '(85) 95555-5555', '1992-11-20'),
-('Fernanda Alves', 'fernanda@example.com', 'senha789', 'cliente', '678.901.234-55', 'Av. Leste, 400 - Fortaleza', '(85) 94444-4444', '1998-04-30'),
-('Ricardo Silva', 'ricardo@example.com', 'minhaSenha', 'cliente', '789.012.345-66', 'Rua Norte, 22 - Redenção', '(85) 93333-3333', '1982-12-12'),
-('Patrícia Gomes', 'patricia@example.com', 'abc456', 'cliente', '890.123.456-77', 'Rua Sul, 10 - Itaitinga', '(85) 92222-2222', '1997-07-07'),
-('Eduardo Nogueira', 'eduardo@example.com', 'teste123', 'cliente', '012.345.678-99', 'Av. Beira Mar, 500 - Fortaleza', '(85) 90000-0000', '1994-08-18'),
-('Luana Freitas', 'luana@example.com', 'curso2025', 'cliente', '901.234.567-88', 'Rua das Palmeiras, 15 - Pacatuba', '(85) 91111-1111', '1980-01-01'),
-('Luana Freitas', 'luana@example.com', 'curso2025', 'administrador', '901.234.567-88', 'Rua das Palmeiras, 15 - Pacatuba', '(85) 91111-1111', '1980-01-01'),
-('Daniel Colares', 'daniel@example.com', '123456', 'administrador', '123.456.789-00', 'Rua das Flores, 100 - Fortaleza', '(85) 99999-9999', '1985-10-10'),
-('Maria Souza', 'maria@example.com', 'senha123', 'administrador', '234.567.890-11', 'Av. Central, 200 - Fortaleza', '(85) 98888-8888', '1990-03-15');
+INSERT INTO usuarios (nome, email, senha, tipo) VALUES
+('Daniel Colares', 'daniel@example.com', '123456', 'cliente'),
+('Maria Souza', 'maria@example.com', 'senha123', 'cliente'),
+('João Lima', 'joao@example.com', 'abc123', 'cliente'),
+('Ana Beatriz', 'ana@example.com', 'senha456', 'cliente'),
+('Carlos Mendes', 'carlos@example.com', 'qwerty', 'cliente'),
+('Fernanda Alves', 'fernanda@example.com', 'senha789', 'cliente'),
+('Ricardo Silva', 'ricardo@example.com', 'minhaSenha', 'cliente'),
+('Patrícia Gomes', 'patricia@example.com', 'abc456', 'cliente'),
+('Eduardo Nogueira', 'eduardo@example.com', 'teste123', 'cliente'),
+('Luana Freitas', 'luana@example.com', 'curso2025', 'cliente');
 
--- Inserindo 1 administrador
-INSERT INTO usuarios (nome, email, senha, tipo, cpf, endereco, telefone, data_nascimento) VALUES
-('Administrador', 'admin@supermercado.com', 'admin123', 'administrador', '999.999.999-99', 'Av. Central, 1 - Fortaleza', '(85) 98888-0000', '1980-01-01');
+
 
 -- Conferindo os dados
 SELECT * FROM usuarios;
