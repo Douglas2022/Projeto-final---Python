@@ -2,5 +2,38 @@
 
 {% block conteudo %}
 <h1>Pagina de login</h1>
+<div class="container min-vh-100 d-flex align-items-center justify-content-center bg-light">
+  <div class="col-md-6 bg-white p-5 rounded shadow">
+    <h2 class="mb-4 text-center text-bg-danger p-2 rounded">
+      Cadastro de Usuário
+    </h2>
+    
+    <form method="POST" action="{{ url_for('cadastro') }}">
+      <div class="mb-3">
+        <label for="nome" class="form-label">Nome completo</label>
+        <input
+          type="text"
+          class="form-control"
+          id="nome"
+          name="nome"
+          required
+        />
+      </div>
+
+      <div class="mb-3">
+        <label for="email" class="form-label">Endereço de Email</label>
+        <input
+          type="email"
+          class="form-control"
+          id="email"
+          name="email"
+          required
+        />
+      </div>
+      <button type="submit" class="btn btn-danger w-100">Cadastrar</button>
+    </form>
+  </div>
 
 {% endblock %}
+
+
