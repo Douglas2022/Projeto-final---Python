@@ -88,6 +88,11 @@ def Cliente():
 @app.route('/administrador', methods=['GET', 'POST'])
 def Administrador():
     pass
+
+@app.route('/produtos', methods=['GET', 'POST'])
+def Comentarios():
+    pass
+
 @app.route('/comentarios', methods=['GET', 'POST'])
 def Comentarios():
     pass

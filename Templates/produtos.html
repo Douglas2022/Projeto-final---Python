@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Produtos</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #e0f0ff; /* azul clarinho */
+        }
+        .navbar {
+            background-color: #0044cc; /* azul escuro */
+        }
+        .navbar .nav-link {
+            color: #ff4444; /* vermelho */
+            font-weight: bold;
+        }
+        .navbar .nav-link:hover {
+            color: #ff0000;
+        }
+        .container-custom {
+            background-color: #ffcccc; /* vermelho clarinho */
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+        table thead {
+            background-color: #0044cc; /* azul escuro */
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg">
+    <div class="container-fluid">
+        <a class="navbar-brand text-white" href="#">Meu Site</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <div class="navbar-nav">
+                <a class="nav-link" href="#">Home</a>
+                <a class="nav-link" href="#">Cadastro de produtos</a>
+                <a class="nav-link active" href="#">Consultar produtos</a>
+                <a class="nav-link" href="#">Fazer comentários</a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<div class="container container-custom">
+    <h2>Produtos Cadastrados</h2>
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Marca</th>
+                <th>Tipo</th>
+                <th>Preço</th>
+                <th>Origem</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr><td>Refrigerante Cola</td><td>Coca-Cola</td><td>Carbonatada</td><td>R$ 5,50</td><td>-</td></tr>
+            <tr><td>Suco de Laranja</td><td>Del Valle</td><td>Natural</td><td>R$ 7,20</td><td>-</td></tr>
+            <tr><td>Água Mineral</td><td>Crystal</td><td>Sem gás</td><td>R$ 3,00</td><td>-</td></tr>
+            <tr><td>Energético</td><td>Red Bull</td><td>Funcional</td><td>R$ 9,50</td><td>-</td></tr>
+            <tr><td>Chá Gelado</td><td>Lipton</td><td>Gelado</td><td>R$ 6,00</td><td>-</td></tr>
+            <tr><td>Cerveja Pilsen</td><td>Heineken</td><td>Alcoólica</td><td>R$ 8,00</td><td>-</td></tr>
+            <tr><td>Cerveja Lager</td><td>Brahma</td><td>Alcoólica</td><td>R$ 6,50</td><td>-</td></tr>
+            <tr><td>Leite Integral</td><td>Italac</td><td>Láctea</td><td>R$ 4,50</td><td>-</td></tr>
+            <tr><td>Suco de Uva</td><td>Santa Helena</td><td>Natural</td><td>R$ 8,90</td><td>-</td></tr>
+            <tr><td>Água com Gás</td><td>São Lourenço</td><td>Carbonatada</td><td>R$ 4,00</td><td>-</td></tr>
+            <tr><td>Detergente Líquido</td><td>Ypê</td><td>Limpador</td><td>R$ 4,50</td><td>-</td></tr>
+            <tr><td>Desinfetante</td><td>Veja</td><td>Sanitizante</td><td>R$ 7,00</td><td>-</td></tr>
+            <tr><td>Sabão em Pó</td><td>Omo</td><td>Roupas</td><td>R$ 15,90</td><td>-</td></tr>
+            <tr><td>Amaciante</td><td>Comfort</td><td>Roupas</td><td>R$ 12,50</td><td>-</td></tr>
+            <tr><td>Água Sanitária</td><td>Candida</td><td>Sanitizante</td><td>R$ 6,00</td><td>-</td></tr>
+            <tr><td>Limpador Multiuso</td><td>Mr. Músculo</td><td>Limpador</td><td>R$ 8,90</td><td>-</td></tr>
+            <tr><td>Esponja de Aço</td><td>Bombril</td><td>Utensílio</td><td>R$ 3,50</td><td>-</td></tr>
+            <tr><td>Limpador de Vidros</td><td>Veja</td><td>Limpador</td><td>R$ 9,00</td><td>-</td></tr>
+            <tr><td>Desengordurante</td><td>Veja</td><td>Limpador</td><td>R$ 10,20</td><td>-</td></tr>
+            <tr><td>Pano de Chão</td><td>Vileda</td><td>Utensílio</td><td>R$ 7,80</td><td>-</td></tr>
+            <tr><td>Maçã</td><td>Nacional</td><td>Fruta</td><td>R$ 4,00</td><td>Brasil</td></tr>
+            <tr><td>Banana</td><td>Nacional</td><td>Fruta</td><td>R$ 3,50</td><td>Brasil</td></tr>
+            <tr><td>Laranja</td><td>Cítrica</td><td>Fruta</td><td>R$ 3,20</td><td>Brasil</td></tr>
+            <tr><td>Uva</td><td>Doce</td><td>Fruta</td><td>R$ 8,90</td><td>Chile</td></tr>
+            <tr><td>Manga</td><td>Tropical</td><td>Fruta</td><td>R$ 5,50</td><td>Brasil</td></tr>
+            <tr><td>Melancia</td><td>Tropical</td><td>Fruta</td><td>R$ 4,30</td><td>Brasil</td></tr>
+            <tr><td>Abacaxi</td><td>Tropical</td><td>Fruta</td><td>R$ 6,00</td><td>Brasil</td></tr>
+            <tr><td>Morango</td><td>Vermelha</td><td>Fruta</td><td>R$ 9,80</td><td>Brasil</td></tr>
+            <tr><td>Pera</td><td>Importada</td><td>Fruta</td><td>R$ 8,50</td><td>Argentina</td></tr>
+            <tr><td>Kiwi</td><td>Importada</td><td>Fruta</td><td>R$ 7,70</td><td>Chile</td></tr>
+        </tbody>
+    </table>
+</div>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
