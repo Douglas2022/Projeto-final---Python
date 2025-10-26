@@ -6,7 +6,7 @@ app = Flask(__name__)
 def ConectarBanco():
     conexao = my.connect(
         user='root',
-        password='1234',
+        password='12345',
         database='SuperSelectD',
         host='localhost'
     )
@@ -34,11 +34,15 @@ def cadastro():
         email = request.form.get('email')
         senha = request.form.get('senha')
         print(f'Email: {email}, Senha: {senha},nome:{nome}, tipo:{tipo}')
+
 #Connectar o banco
         conexao = ConectarBanco()
-        cursor.execute()
-        cursor.feetchone()
-
+        cursor= conexao.cursor(dictionary=True)
+        sql = 'select * from usuarios where nome,email,senha = %s,%s,%s'
+        cursor.execute(sql,(nome,email,senha))
+        resultado = cursor.fetchall()
+        cursor.close()
+        conexao.close()
    
     return render_template('cadastro.html', titulo=titulo)
 
