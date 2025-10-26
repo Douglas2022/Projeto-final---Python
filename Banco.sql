@@ -27,9 +27,6 @@ INSERT INTO usuarios (nome, email, senha, tipo) VALUES
 ('Luana Freitas', 'luana@example.com', 'curso2025', 'cliente');
 
 
-
-
-
 INSERT INTO produtos (nome, marca, tipo, preco) VALUES
 ('Refrigerante Cola', 'Coca-Cola', 'Carbonatada', 5.50),
 ('Suco de Laranja', 'Del Valle', 'Natural', 7.20),

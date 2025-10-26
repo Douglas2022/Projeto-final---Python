@@ -3,6 +3,7 @@ import mysql.connector as my
 
 app = Flask(__name__)
 
+
 def ConectarBanco():
     conexao = my.connect(
         user='root',
@@ -11,6 +12,13 @@ def ConectarBanco():
         host='localhost'
     )
     return conexao
+try:
+    conexao = ConectarBanco()
+    print("Conexão OK!")
+    conexao.close()
+except my.Error as err:
+    print(f"Erro ao conectar: {err}")
+
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
@@ -38,11 +46,16 @@ def cadastro():
 #Connectar o banco
         conexao = ConectarBanco()
         cursor= conexao.cursor(dictionary=True)
-        sql = 'select * from usuarios where nome,email,senha = %s,%s,%s'
+        sql = 'select * from usuarios where nome = %s and senha = %s'
         cursor.execute(sql,(nome,email,senha))
         resultado = cursor.fetchall()
         cursor.close()
         conexao.close()
+
+        if resultado:
+            print('Usuarios encontrado:',resultado)
+        else:
+            print('Usuarios não encontrado:')
    
     return render_template('cadastro.html', titulo=titulo)
 
