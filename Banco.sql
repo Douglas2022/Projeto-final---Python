@@ -1,4 +1,4 @@
-CREATE DATABASE IF NOT EXISTS SuperSelectD;
+CREATE DATABASE  SuperSelectD;
 USE SuperSelectD;
 
 CREATE TABLE usuarios (
@@ -25,6 +25,9 @@ INSERT INTO usuarios (nome, email, senha, tipo) VALUES
 ('Patrícia Gomes', 'patricia@example.com', 'abc456', 'cliente'),
 ('Eduardo Nogueira', 'eduardo@example.com', 'teste123', 'cliente'),
 ('Luana Freitas', 'luana@example.com', 'curso2025', 'cliente');
+
+
+
 
 
 INSERT INTO produtos (nome, marca, tipo, preco) VALUES
@@ -69,4 +72,17 @@ CREATE TABLE comentarios (
     data_hora DATETIME DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (produto_id) REFERENCES produtos(id)
 );
+
+ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY '12345';
+FLUSH PRIVILEGES;
+
+SELECT user, host, plugin FROM mysql.user WHERE user = 'root';
+ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY '12345';
+FLUSH PRIVILEGES;
+SELECT user, host, plugin FROM mysql.user WHERE user = 'root';
+
+CREATE USER 'zeus'@'localhost' IDENTIFIED WITH mysql_native_password BY '12345';
+GRANT ALL PRIVILEGES ON SuperSelectD.* TO 'zeus'@'localhost';
+FLUSH PRIVILEGES;
+
 
