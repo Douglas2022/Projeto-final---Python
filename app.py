@@ -39,7 +39,7 @@ def login():
         sql = 'SELECT * FROM usuarios WHERE cpf=%s AND senha=%s'
         cursor.execute(sql,(cpf,senha))
         usuarios = cursor.fetchone()
-        cursor.closw()
+        cursor.close()
         conexao.close()
 
         if usuarios:
@@ -84,22 +84,33 @@ def cadastro():
 @app.route('/cliente', methods=['GET', 'POST'])
 def Cliente():
     pass
+    return render_template('cliente.html')
+
+    
 
 @app.route('/administrador', methods=['GET', 'POST'])
 def Administrador():
+    
     pass
+    return render_template('administrador.html')
 
 @app.route('/produtos', methods=['GET', 'POST'])
 def Comentarios():
     pass
+    return render_template('produtos.html')
+
 
 @app.route('/comentarios', methods=['GET', 'POST'])
 def Comentarios():
     pass
+    return render_template('comentarios.html')
+
 
 @app.route('/historico', methods=['GET'])
 def Historico():
     pass
+    return render_template('historico.html')
+
     
 
 
