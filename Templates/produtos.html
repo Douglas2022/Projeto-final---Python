@@ -9,6 +9,14 @@
       rel="stylesheet"
     />
     <style>
+      /* 🔹 Ajuste de tamanho da imagem */
+      .card-img-top {
+        height: 180px;
+        width: auto;
+        object-fit: contain;
+        padding: 10px;
+      }
+
       body {
         background-color: #e0f0ff;
       }
@@ -37,6 +45,7 @@
       }
     </style>
   </head>
+
   <body>
     <nav class="navbar navbar-expand-lg">
       <div class="container-fluid">
@@ -60,20 +69,20 @@
       </div>
     </nav>
 
-    <div class="container mt-2">
-      <h2 class="mb-4">Produtos Cadastrados</h2>
+    <div class="container mt-4">
+      <h2 class="mb-4 text-primary">Produtos Cadastrados</h2>
+
+      <!-- 🔹 Uma única linha com todos os cards -->
       <div class="row row-cols-1 row-cols-md-3 g-4">
-        <!-- Produtos: todos 30 -->
         <!-- Produto 1 -->
         <div class="col">
           <div class="card card-custom h-100">
             <img
-              src="https://via.placeholder.com/150"
+              src="https://drogal.vtexassets.com/arquivos/ids/264563-1200-900?v=638906075167470000&width=1200&height=900&aspect=true"
               class="card-img-top"
               alt="Refrigerante Cola"
             />
             <div class="card-body">
-                <img src="" alt="card-img-top" srcset="">
               <h5 class="card-title">Refrigerante Cola</h5>
               <p class="card-text"><span>Marca:</span> Coca-Cola</p>
               <p class="card-text"><span>Tipo:</span> Carbonatada</p>
@@ -81,15 +90,16 @@
             </div>
           </div>
         </div>
+
         <!-- Produto 2 -->
         <div class="col">
-          <div
-            img="https://www.google.com/url?sa=i&url=https%3A%2F%2Floja.stampafood.com.br%2Fsuco-natural%2Fsuco-integral-de-laranja-refrigerado-15-l-natural-one-386&psig=AOvVaw1IltY5z8EGaxPg9gLn3WP-&ust=1761600092768000&source=images&cd=vfe&opi=89978449&ved=0CBUQjRxqFwoTCPjp7PDlwpADFQAAAAAdAAAAABAL"
-            class="card-img-top"
-            alt="Suco de Laranja"
-          >
+          <div class="card card-custom h-100">
+            <img
+              src="https://applicativa-marketplace-prod.s3.amazonaws.com/produtos/suco-de-laranja-blend-especial-natural-one--15l-0-7899916904853.webp"
+              class="card-img-top"
+              alt="Suco de Laranja"
+            />
             <div class="card-body">
-                <img src="" alt="">
               <h5 class="card-title">Suco de Laranja</h5>
               <p class="card-text"><span>Marca:</span> Del Valle</p>
               <p class="card-text"><span>Tipo:</span> Natural</p>
@@ -102,7 +112,7 @@
         <div class="col">
           <div class="card card-custom h-100">
             <img
-              src="https://via.placeholder.com/150"
+              src="https://www.delgo.com.br/imagens/como-e-feito-o-envase-de-agua-mineral.jpg"
               class="card-img-top"
               alt="Água Mineral"
             />
@@ -119,7 +129,7 @@
         <div class="col">
           <div class="card card-custom h-100">
             <img
-              src="https://via.placeholder.com/150"
+              src="https://www.drogaraia.com.br/_next/image?url=https%3A%2F%2Fproduct-data.raiadrogasil.io%2Fimages%2F12761248.webp&w=1080&q=75"
               class="card-img-top"
               alt="Energético"
             />
@@ -136,7 +146,7 @@
         <div class="col">
           <div class="card card-custom h-100">
             <img
-              src="https://via.placeholder.com/150"
+              src="https://promofarma.vtexassets.com/arquivos/ids/166088-1200-auto?v=637952065050370000&width=1200&height=auto&aspect=true"
               class="card-img-top"
               alt="Chá Gelado"
             />
@@ -149,8 +159,371 @@
           </div>
         </div>
 
-        <!-- Produto 6 até Produto 30 -->
-        <!-- Seguindo o mesmo modelo acima, basta copiar e substituir os dados do SQL -->
+        <!-- Outros produtos -->
+        <div class="col">
+          <div class="card card-custom h-100">
+            <img
+              src="https://www.imigrantesbebidas.com.br/img/bebida/images/products/full/222-cerveja-heineken-long-neck-330ml.jpg?fm=webp&p=product_mini&s=202d18ba80e455f88393cb5ca64dc9d1"
+              class="card-img-top"
+              alt="Cerveja Pilsen"
+            />
+            <div class="card-body">
+              <h5 class="card-title">Cerveja Pilsen</h5>
+              <p class="card-text"><span>Marca:</span> Heineken</p>
+              <p class="card-text"><span>Tipo:</span> Alcoólica</p>
+              <p class="card-text"><span>Preço:</span> R$ 8,00</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="card card-custom h-100">
+            <img
+              src="https://cdn.formulaexpress.com.br/img/p/1/9/7/197-thickbox_default.jpg"
+              class="card-img-top"
+              alt="Cerveja Lager"
+            />
+            <div class="card-body">
+              <h5 class="card-title">Cerveja Brahma</h5>
+              <p class="card-text"><span>Marca:</span> Brahma</p>
+              <p class="card-text"><span>Tipo:</span> Alcoólica</p>
+              <p class="card-text"><span>Preço:</span> R$ 6,50</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="card card-custom h-100">
+            <img
+              src="https://ibassets.com.br/ib.item.image.large/l-c54acdc6d1da4f50a37252efe847bbd7.jpeg"
+              class="card-img-top"
+              alt="Leite Integral"
+            />
+            <div class="card-body">
+              <h5 class="card-title">Leite Integral</h5>
+              <p class="card-text"><span>Marca:</span> Italac</p>
+              <p class="card-text"><span>Tipo:</span> Láctea</p>
+              <p class="card-text"><span>Preço:</span> R$ 4,50</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="card card-custom h-100">
+            <img
+              src="https://images.tcdn.com.br/img/img_prod/1048598/suco_de_uva_integral_campo_largo_900_ml_12335_1_9589f70941dd7e0687d3bab8bf6b57d6.png"
+              class="card-img-top"
+              alt="Suco de Uva"
+            />
+            <div class="card-body">
+              <h5 class="card-title">Suco de Uva</h5>
+              <p class="card-text"><span>Marca:</span> Santa Helena</p>
+              <p class="card-text"><span>Tipo:</span> Natural</p>
+              <p class="card-text"><span>Preço:</span> R$ 8,90</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="card card-custom h-100">
+            <img
+              src="https://cdn.spiritshop.com.br/ourofino/image/cache/data/up_system/product-515/agua-mineral-500-ml-com-gas-pack-com-12-unidades-788-1200x1200.png"
+              class="card-img-top"
+              alt="Água com Gás"
+            />
+            <div class="card-body">
+              <h5 class="card-title">Água com Gás</h5>
+              <p class="card-text"><span>Marca:</span> São Lourenço</p>
+              <p class="card-text"><span>Tipo:</span> Carbonatada</p>
+              <p class="card-text"><span>Preço:</span> R$ 4,00</p>
+            </div>
+          </div>
+        </div>
+        <!-- Detergente Líquido -->
+        <div class="col">
+          <div class="card card-custom h-100">
+            <img
+              src="https://castronaves.vteximg.com.br/arquivos/ids/371251-1000-1000/84574_01.jpg?v=637655863428400000"
+              class="card-img-top"
+              alt="Detergente Líquido"
+            />
+            <div class="card-body">
+              <h5 class="card-title">Detergente Líquido</h5>
+              <p class="card-text"><span>Marca:</span> Ypê</p>
+              <p class="card-text"><span>Tipo:</span> Limpador</p>
+              <p class="card-text"><span>Preço:</span> R$ 4,50</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Desinfetante -->
+        <div class="col">
+          <div class="card card-custom h-100">
+            <img
+              src="https://www.jnfraldas.com.br/wp-content/uploads/2024/03/uaupequenolavanda.webp"
+              class="card-img-top"
+              alt="Desinfetante"
+            />
+            <div class="card-body">
+              <h5 class="card-title">Desinfetante</h5>
+              <p class="card-text"><span>Marca:</span> Veja</p>
+              <p class="card-text"><span>Tipo:</span> Sanitizante</p>
+              <p class="card-text"><span>Preço:</span> R$ 7,00</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Sabão em Pó -->
+        <div class="col">
+          <div class="card card-custom h-100">
+            <img
+              src="https://s3.amazonaws.com/lepok.w/produtos/produtos/25943.webp"
+              class="card-img-top"
+              alt="Sabão em Pó"
+            />
+            <div class="card-body">
+              <h5 class="card-title">Sabão em Pó</h5>
+              <p class="card-text"><span>Marca:</span> Omo</p>
+              <p class="card-text"><span>Tipo:</span> Roupas</p>
+              <p class="card-text"><span>Preço:</span> R$ 15,90</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Amaciante -->
+        <div class="col">
+          <div class="card card-custom h-100">
+            <img
+              src="https://cepel.vteximg.com.br/arquivos/ids/170747-1000-1000/Design-sem-nome---2023-06-26T135644.123.png?v=638233958198970000"
+              class="card-img-top"
+              alt="Amaciante"
+            />
+            <div class="card-body">
+              <h5 class="card-title">Amaciante</h5>
+              <p class="card-text"><span>Marca:</span> Comfort</p>
+              <p class="card-text"><span>Tipo:</span> Roupas</p>
+              <p class="card-text"><span>Preço:</span> R$ 12,50</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Água Sanitária -->
+        <div class="col">
+          <div class="card card-custom h-100">
+            <img
+              src="https://mercantilatacado.vtexassets.com/arquivos/ids/171637-1200-auto?v=638349582486370000&width=1200&height=auto&aspect=true"
+              class="card-img-top"
+              alt="Água Sanitária"
+            />
+            <div class="card-body">
+              <h5 class="card-title">Água Sanitária</h5>
+              <p class="card-text"><span>Marca:</span> Candida</p>
+              <p class="card-text"><span>Tipo:</span> Sanitizante</p>
+              <p class="card-text"><span>Preço:</span> R$ 6,00</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Limpador Multiuso -->
+        <div class="col">
+          <div class="card card-custom h-100">
+            <img
+              src="https://produtoslimpbras.com.br/wp-content/uploads/2022/01/Limpador-Multiuso-Leve-e-Use-500ml-.png"
+              class="card-img-top"
+              alt="Limpador Multiuso"
+            />
+            <div class="card-body">
+              <h5 class="card-title">Limpador Multiuso</h5>
+              <p class="card-text"><span>Marca:</span> Mr. Músculo</p>
+              <p class="card-text"><span>Tipo:</span> Limpador</p>
+              <p class="card-text"><span>Preço:</span> R$ 8,90</p>
+            </div>
+          </div>
+        </div>
+        <!-- Esponja de Aço -->
+<div class="col">
+  <div class="card card-custom h-100">
+    <img src="https://m.media-amazon.com/images/I/51LkyKTUnCL._AC_SY300_SX300_QL70_ML2_.jpg" class="card-img-top" alt="Esponja de Aço" />
+    <div class="card-body">
+      <h5 class="card-title">Esponja de Aço</h5>
+      <p class="card-text"><span>Marca:</span> Bombril</p>
+      <p class="card-text"><span>Tipo:</span> Utensílio</p>
+      <p class="card-text"><span>Preço:</span> R$ 3,50</p>
+    </div>
+  </div>
+</div>
+
+<!-- Limpador de Vidros -->
+<div class="col">
+  <div class="card card-custom h-100">
+    <img src="https://m.media-amazon.com/images/I/51jrOrd7GzS._AC_SY300_SX300_QL70_ML2_.jpg" class="card-img-top" alt="Limpador de Vidros" />
+    <div class="card-body">
+      <h5 class="card-title">Limpador de Vidros</h5>
+      <p class="card-text"><span>Marca:</span> Veja</p>
+      <p class="card-text"><span>Tipo:</span> Limpador</p>
+      <p class="card-text"><span>Preço:</span> R$ 9,00</p>
+    </div>
+  </div>
+</div>
+
+<!-- Desengordurante -->
+<div class="col">
+  <div class="card card-custom h-100">
+    <img src="https://destro.fbitsstatic.net/img/p/desengordurante-veja-limao-pulverizador-cozinha-500ml-72964/259500.jpg?w=500&h=500&v=202507081013&qs=ignore" class="card-img-top" alt="Desengordurante" />
+    <div class="card-body">
+      <h5 class="card-title">Desengordurante</h5>
+      <p class="card-text"><span>Marca:</span> Veja</p>
+      <p class="card-text"><span>Tipo:</span> Limpador</p>
+      <p class="card-text"><span>Preço:</span> R$ 10,20</p>
+    </div>
+  </div>
+</div>
+
+<!-- Pano de Chão -->
+<div class="col">
+  <div class="card card-custom h-100">
+    <img src="https://castronaves.vteximg.com.br/arquivos/ids/166758-1000-1000/71290_1.jpg?v=636620798304970000" class="card-img-top" alt="Pano de Chão" />
+    <div class="card-body">
+      <h5 class="card-title">Pano de Chão</h5>
+      <p class="card-text"><span>Marca:</span> Vileda</p>
+      <p class="card-text"><span>Tipo:</span> Utensílio</p>
+      <p class="card-text"><span>Preço:</span> R$ 7,80</p>
+    </div>
+  </div>
+</div>
+
+<!-- Maçã -->
+<div class="col">
+  <div class="card card-custom h-100">
+    <img src="https://saude.abril.com.br/wp-content/uploads/2016/11/mac3a7c3a3.jpg?quality=85&strip=info&w=680&h=453&crop=1" class="card-img-top" alt="Maçã" />
+    <div class="card-body">
+      <h5 class="card-title">Maçã</h5>
+      <p class="card-text"><span>Marca:</span> Nacional</p>
+      <p class="card-text"><span>Origem:</span> Brasil</p>
+      <p class="card-text"><span>Preço:</span> R$ 4,00</p>
+    </div>
+  </div>
+</div>
+
+<!-- Banana -->
+<div class="col">
+  <div class="card card-custom h-100">
+    <img src="https://obahortifruti.vtexassets.com/arquivos/ids/10918623/Banana-Da-Terra.jpg?v=638824962926000000s" class="card-img-top" alt="Banana" />
+    <div class="card-body">
+      <h5 class="card-title">Banana</h5>
+      <p class="card-text"><span>Marca:</span> Nacional</p>
+      <p class="card-text"><span>Origem:</span> Brasil</p>
+      <p class="card-text"><span>Preço:</span> R$ 3,50</p>
+    </div>
+  </div>
+</div>
+
+<!-- Laranja -->
+<div class="col">
+  <div class="card card-custom h-100">
+    <img src="https://acdn-us.mitiendanube.com/stores/002/296/660/products/207993_laranja_pera1-390a5d1d04163a225916606828346325-1024-1024.jpg" class="card-img-top" alt="Laranja" />
+    <div class="card-body">
+      <h5 class="card-title">Laranja</h5>
+      <p class="card-text"><span>Marca:</span> Cítrica</p>
+      <p class="card-text"><span>Origem:</span> Brasil</p>
+      <p class="card-text"><span>Preço:</span> R$ 3,20</p>
+    </div>
+  </div>
+</div>
+
+<!-- Uva -->
+<div class="col">
+  <div class="card card-custom h-100">
+    <img src="https://frutasdobrasil.org/wp-content/uploads/2021/08/WhatsApp-Image-2021-09-29-at-15.42.51-2-477x375.jpeg" class="card-img-top" alt="Uva" />
+    <div class="card-body">
+      <h5 class="card-title">Uva</h5>
+      <p class="card-text"><span>Marca:</span> Doce</p>
+      <p class="card-text"><span>Origem:</span> Chile</p>
+      <p class="card-text"><span>Preço:</span> R$ 8,90</p>
+    </div>
+  </div>
+</div>
+
+<!-- Manga -->
+<div class="col">
+  <div class="card card-custom h-100">
+    <img src="https://abrafrutas.org/wp-content/uploads/2023/04/destaque-manga.webp" class="card-img-top" alt="Manga" />
+    <div class="card-body">
+      <h5 class="card-title">Manga</h5>
+      <p class="card-text"><span>Marca:</span> Tropical</p>
+      <p class="card-text"><span>Origem:</span> Brasil</p>
+      <p class="card-text"><span>Preço:</span> R$ 5,50</p>
+    </div>
+  </div>
+</div>
+
+<!-- Melancia -->
+<div class="col">
+  <div class="card card-custom h-100">
+    <img src="https://image.tuasaude.com/media/article/cp/bf/beneficios-da-melancia_21634.jpg?width=1372&height=974" class="card-img-top" alt="Melancia" />
+    <div class="card-body">
+      <h5 class="card-title">Melancia</h5>
+      <p class="card-text"><span>Marca:</span> Tropical</p>
+      <p class="card-text"><span>Origem:</span> Brasil</p>
+      <p class="card-text"><span>Preço:</span> R$ 4,30</p>
+    </div>
+  </div>
+</div>
+
+<!-- Abacaxi -->
+<div class="col">
+  <div class="card card-custom h-100">
+    <img src="https://52586.cdn.lojaquevende.com.br/static/52586/sku/frutas-Abacaxi-1586826589955.png" class="card-img-top" alt="Abacaxi" />
+    <div class="card-body">
+      <h5 class="card-title">Abacaxi</h5>
+      <p class="card-text"><span>Marca:</span> Tropical</p>
+      <p class="card-text"><span>Origem:</span> Brasil</p>
+      <p class="card-text"><span>Preço:</span> R$ 6,00</p>
+    </div>
+  </div>
+</div>
+
+<!-- Morango -->
+<div class="col">
+  <div class="card card-custom h-100">
+    <img src="https://fortatacadista.vteximg.com.br/arquivos/ids/159956-1000-1000/632007_1.jpg?v=637437416598800000" class="card-img-top" alt="Morango" />
+    <div class="card-body">
+      <h5 class="card-title">Morango</h5>
+      <p class="card-text"><span>Marca:</span> Vermelha</p>
+      <p class="card-text"><span>Origem:</span> Brasil</p>
+      <p class="card-text"><span>Preço:</span> R$ 9,80</p>
+    </div>
+  </div>
+</div>
+
+<!-- Pera -->
+<div class="col">
+  <div class="card card-custom h-100">
+    <img src="https://www.proativaalimentos.com.br/image/cachewebp/catalog/img_prod/Pera[1]-500x500.webp" class="card-img-top" alt="Pera" />
+    <div class="card-body">
+      <h5 class="card-title">Pera</h5>
+      <p class="card-text"><span>Marca:</span> Importada</p>
+      <p class="card-text"><span>Origem:</span> Argentina</p>
+      <p class="card-text"><span>Preço:</span> R$ 8,50</p>
+    </div>
+  </div>
+</div>
+
+<!-- Kiwi -->
+<div class="col">
+  <div class="card card-custom h-100">
+    <img src="https://blog.mfrural.com.br/wp-content/uploads/2020/12/kiwi-cultivo-1080x620.jpg.webp" class="card-img-top" alt="Kiwi" />
+    <div class="card-body">
+      <h5 class="card-title">Kiwi</h5>
+      <p class="card-text"><span>Marca:</span> Importada</p>
+      <p class="card-text"><span>Origem:</span> Chile</p>
+      <p class="card-text"><span>Preço:</span> R$ 7,70</p>
+    </div>
+  </div>
+</div>
+
+
+        <!-- continua... -->
       </div>
     </div>
 
