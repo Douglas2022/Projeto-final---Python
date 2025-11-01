@@ -86,7 +86,13 @@ def cadastro():
 
 @app.route('/cliente', methods=['GET', 'POST'])
 def Cliente():
-    pass
+    conexao = ConectarBanco()
+    cursor= conexao.cursor()
+    sql = "INSERT INTO usuarios (nome, email, senha, tipo, cpf) VALUES (%s, %s, %s,%s)"
+    cursor.execute(sql,)
+
+
+    
     return render_template('cliente.html')
 
     
