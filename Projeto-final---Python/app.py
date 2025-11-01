@@ -44,9 +44,17 @@ def login():
         if usuarios:
             mensagem = f"Bem - vindo,{usuarios['nome']}"
             print(mensagem)
+            if usuarios['tipo'] == 'cliente':
+              return  render_template('cliente.html')
+            else:
+                return render_template('administrador.html')
+
+
         else:
             mensagem = f" ou senha incorreta."
             print(mensagem)
+        
+   
 
     return render_template('login.html')
 
