@@ -1,0 +1,13 @@
+# Windows system files
+ntuser.dat*
+*.LOG*
+*.ini
+Thumbs.db
+Desktop.ini
+
+# VSCode e Python
+.vscode/
+.venv/
+__pycache__/
+*.pyc
+

@@ -1,0 +1,125 @@
+{% extends 'base.html' %}
+<style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #0a2fc2;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 500px;
+            margin: 60px auto;
+            background-color: rgb(215, 15, 15);
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.1);
+        }
+
+        h2 {
+            text-align: center;
+            color: #2f3640;
+        }
+
+        label {
+            display: block;
+            margin-top: 15px;
+            font-weight: bold;
+        }
+
+        input, textarea, select {
+            width: 100%;
+            padding: 10px;
+            margin-top: 6px;
+            border: 1px solid #dcdde1;
+            border-radius: 8px;
+            font-size: 15px;
+        }
+
+        button {
+            width: 100%;
+            background-color: #00a8ff;
+            color: white;
+            border: none;
+            padding: 12px;
+            margin-top: 20px;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0097e6;
+        }
+    </style>
+
+{% block conteudo %}
+
+<div class="container titulo">
+  <div class="row justify-content-center border-dark">
+    <div class="col-10 titulo">
+      <div
+        class="container min-vh-100 d-flex align-items-center justify-content-center bg-light"
+      >
+        <div class="col-md-6 bg-white p-5 rounded shadow">
+          <h2 class="mb-4 text-center text-bg-danger text-aling-center">
+            Cadastro de Usuário
+          </h2>
+          <form method="POST" action="{{ url_for('cadastro') }}">
+            <div class="mb-3">
+              <label for="nome" class="form-label">Nome completo</label>
+              <input
+                type="text"
+                class="form-control"
+                id="nome"
+                name="nome"
+                required
+              />
+            </div>
+
+            <div class="mb-3">
+              <label for="email" class="form-label">Email</label>
+              <input
+                type="email"
+                class="form-control"
+                id="email"
+                name="email"
+                required
+              />
+            </div>
+
+            <div class="mb-3">
+              <label for="CPF" class="form-label">CPF
+              <input
+                type="text"
+                class="form-control"
+                id="CPF"
+                name="cpf"
+                required
+              />
+            </div>
+           
+            <div class="mb-3">
+              <label for="senha" class="form-label">Senha</label>
+              <input
+                type="password"
+                class="form-control"
+                id="senha"
+                name="senha"
+                required
+              />
+            </div>
+            
+            <div class="d-grid">
+              <button type="submit" class="btn btn-primary">Cadastrar</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}
+
+

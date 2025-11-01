@@ -1,0 +1,88 @@
+{% extends 'base.html' %}
+<style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #0a2fc2;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 500px;
+            margin: 60px auto;
+            background-color: rgb(215, 15, 15);
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.1);
+        }
+
+        h2 {
+            text-align: center;
+            color: #2f3640;
+        }
+
+        label {
+            display: block;
+            margin-top: 15px;
+            font-weight: bold;
+        }
+
+        input, textarea, select {
+            width: 100%;
+            padding: 10px;
+            margin-top: 6px;
+            border: 1px solid #dcdde1;
+            border-radius: 8px;
+            font-size: 15px;
+        }
+
+        button {
+            width: 100%;
+            background-color: #00a8ff;
+            color: white;
+            border: none;
+            padding: 12px;
+            margin-top: 20px;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0097e6;
+        }
+    </style>
+
+{% block conteudo %}
+
+<div class="container bg-primary">
+    <div class="row justify-content-center">
+        <div class="container bg-danger min-vh-100 d-flex align-items-center justify-content-center">
+            <div class="col-md-5 bg-light p-4 rounded-4 shadow">
+                <form method="post"  action="{{url_for('login')}}">
+                    <div>
+                        <h1 class="text-xl-center mb-4 titulo">Supermercado SuperSelectD</h1>
+                    </div>
+
+                    <div class="md-3 titulo">
+                        <label for="exampleInputEmail1" class="form-label">CPF</label>
+                        <input type="email" class="form-control" id="CPF" aria-describedby="emailHelp" name="CPF">
+                        <div id="emailHelp" class="form-text"></div>
+                    </div>
+                    <div class="mb-3 titulo">
+                        <label for="exampleInputPassword1" class="form-label">Senha</label>
+                        <input type="password" class="form-control" id="senha" name="senha">
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary titulo">Enviar</button>
+                </form>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

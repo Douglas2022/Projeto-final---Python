@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block conteudo %}
+
+{% for produto in listaProdutos %}
+<div class="container">
+  <div class="row">
+    <div class="col-4">
+      <h5>{{ produto.nome }}</h5>
+      <p>{{ produto.descricao }}</p>
+      <p>Preço: R$ {{ produto.preco }}</p>
+    </div>
+  </div>
+</div>
+{% endfor %}
+
+{% endblock %}

@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+
+{% block conteudo %}
+
+<style>
+        body {
+            background-color: #e0f0ff; /* azul clarinho */
+        }
+        .navbar {
+            background-color: #0044cc; /* azul escuro */
+        }
+        .navbar .nav-link {
+            color: #ff4444; /* vermelho */
+            font-weight: bold;
+        }
+        .navbar .nav-link:hover {
+            color: #ff0000;
+        }
+        .container-custom {
+            background-color: #c41a1a; /* vermelho clarinho */
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+    </style>
+
+<div class="containe justify-content-center" style="border: #0f13e0;">
+  <div class="row">
+    <div class="col-4">
+
+      <h1 class="container justify-content-center background-color" style="display: flex;">Pagina Inicial</h1>
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Supermercado Online</title>
+ 
+<body>
+
+  <header>
+    <h1>Supermercado Online</h1>
+    <p class="container - text-align content">Tudo o que necesita, tem um só lugar 🛒</p>
+  </header>
+
+  <nav class=" containe background d-flex border-radius button" style="border: #0f13e0;">
+    <div class="containe background display flex border-radius" style="border: red;">
+      <a href="{{url_for('login')}}">Login</a>
+      <br>
+      <a href="{{url_for('cadastro')}}">Cadastro</a>
+    </div>
+
+
+
+    </div>
+
+  </div>
+</div>
+
+
+
+
+
+    {% endblock %}

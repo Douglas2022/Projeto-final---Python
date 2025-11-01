@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Site Azul e Vermelho</title>
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        background-color: #0f79dd; /* fundo azul clarinho */
+      }
+      .navbar {
+        background-color: #0044cc; /* azul escuro */
+      }
+      .navbar .nav-link {
+        color: #ff4444; /* vermelho */
+        font-weight: bold;
+      }
+      .navbar .nav-link:hover {
+        color: #ff0000; /* vermelho mais forte ao passar o mouse */
+      }
+      .container-custom {
+        background-color: #f3097a; /* container vermelho clarinho */
+        padding: 20px;
+        border-radius: 10px;
+        margin-top: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container container-custom">
+      <div class="row">
+        <div class="col-10">
+          <h1>Bem-vindo ao site da Loja</h1>
+          <p>Lugar de gente feliz!</p>
+        </div>
+      </div>
+    </div>
+
+    <nav class="navbar navbar-expand-lg">
+      <div class="container-fluid">
+        <a class="navbar-brand text-white" href="#"></a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNavAltMarkup"
+          aria-controls="navbarNavAltMarkup"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div class="navbar-nav">
+            <a class="nav-link active" aria-current="page" href="#">Home</a>
+            <a class="nav-link active" aria-current="page" href="#">Página de cadastro</a>
+            <a class="nav-link active" aria-current="page" href="#">Página de produtos</a>
+            <a class="nav-link active" aria-current="page" href="#">Fazer comentários</a>
+            <a class="nav-link active" aria-current="page" href="#">Consultar produtos</a>
+            <a class="nav-link active" aria-current="page" href="#">Sair</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
