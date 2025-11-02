@@ -73,6 +73,11 @@
     <!-- BLOCO PRINCIPAL -->
     {% block conteudo %}
     {% endblock %}
+
+    {% if session.usuario_nome %}
+    <p>Olá, {{ session.usuario_nome }}! <a href="{{ url_for('logout') }}">Sair</a></p>
+{% endif %}
+
   </body>
 
   <script

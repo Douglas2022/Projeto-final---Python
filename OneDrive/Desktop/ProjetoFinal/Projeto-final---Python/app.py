@@ -186,6 +186,11 @@ def historico():
 
     return render_template('historico.html', historico=historico_usuario, nome=session['usuario_nome'])
 
+@app.route('/logout')
+def logout():
+    session.clear()  # Limpa todos os dados do usuário da sessão
+    return redirect(url_for('login'))  # Redireciona para a página de login
+
 
 if __name__ == '__main__':
     app.run(debug=True)
