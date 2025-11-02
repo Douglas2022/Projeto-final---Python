@@ -4,7 +4,7 @@ import mysql.connector as my
 app = Flask(__name__)
 app.secret_key = 'sua_chave_secreta_aqui'  # Necessário para sessões
 
-# Função para conectar ao banco
+
 def ConectarBanco():
     return my.connect(
         user='root',
@@ -13,13 +13,13 @@ def ConectarBanco():
         host='localhost'
     )
 
-# Página inicial redireciona para login
+
 @app.route('/')
 def index():
     return render_template('index.html')
 
 
-# Cadastro de usuário
+
 @app.route('/cadastro', methods=['GET', 'POST'])
 def cadastro():
     mensagem = None
@@ -37,7 +37,7 @@ def cadastro():
             conexao.commit()
             cursor.close()
             conexao.close()
-            # Redireciona para login após cadastro
+           
             return redirect(url_for('login'))
         except my.Error as err:
             mensagem = f"Erro ao cadastrar: {err}"
@@ -59,7 +59,7 @@ def login():
         conexao.close()
 
         if usuario:
-            # Salvar dados na sessão
+        
             session['usuario_id'] = usuario['id']  # Substitua 'id' pelo nome da coluna de ID
             session['usuario_nome'] = usuario['nome']
             session['usuario_tipo'] = usuario['tipo'].strip().lower()
@@ -85,7 +85,6 @@ def cliente():
         conexao = ConectarBanco()
         cursor = conexao.cursor(dictionary=True)
 
-        # Inserir comentário
         if request.method == 'POST':
             produto_id = request.form.get('produto_id')
             texto = request.form.get('texto')
@@ -95,11 +94,11 @@ def cliente():
                 conexao.commit()
                 mensagem = "Comentário enviado com sucesso!"
 
-        # Buscar produtos
+  
         cursor.execute("SELECT * FROM produtos")
         produtos = cursor.fetchall()
 
-        # Buscar todos os comentários
+       
         cursor.execute("SELECT * FROM comentarios ORDER BY id DESC")
         comentarios = cursor.fetchall()
 
@@ -128,7 +127,7 @@ def produtos():
     
     return render_template('produtos.html', produtos=lista_produtos)
 
-    return render_template('produtos.html')
+   
 
 @app.route('/comentarios')
 def comentarios():
@@ -162,7 +161,7 @@ def comentarios():
 @app.route('/historico')
 def historico():
     if 'usuario_id' not in session:
-        return redirect(url_for('login'))  # redireciona se não estiver logado
+        return redirect(url_for('login'))  
 
     try:
         conexao = ConectarBanco()
