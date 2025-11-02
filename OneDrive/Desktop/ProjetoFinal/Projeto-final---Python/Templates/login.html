@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block conteudo %}
+<div class="container">
+    <h2>Login</h2>
+
+    {% if mensagem %}
+        <div class="mensagem">{{ mensagem }}</div>
+    {% endif %}
+
+    <form method="POST" action="{{ url_for('login') }}">
+        <label for="nome">Nome</label>
+        <input type="text" id="nome" name="nome" required>
+        
+        <label for="senha">Senha</label>
+        <input type="password" id="senha" name="senha" required>
+
+        <button type="submit">Cadastrar</button>
+    </form>
+
+    <!-- <p>Já tem conta? <a href="{{ url_for('login') }}">Faça login aqui</a></p> -->
+</div>
+{% endblock %}
