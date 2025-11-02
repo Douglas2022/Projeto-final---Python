@@ -1,27 +1,21 @@
-# Ignorar pastas do sistema
-AppData/
-Documents/
-Downloads/
-Music/
-Pictures/
-Videos/
-Saved Games/
-VirtualBox VMs/
-
-# Arquivos do Windows
+# Windows system
 Thumbs.db
 Desktop.ini
-ntuser.dat*
 *.lnk
+*.log
 
-# Pastas e arquivos de IDEs
-.vscode/
-.idea/
-*.sln
-*.sqlite
-.venv/
+# Python
 __pycache__/
 *.pyc
+*.pyo
+*.pyd
+.venv/
+.env/
 
-# Outros arquivos temporários
-*.log
+# IDEs
+.vscode/
+*.sln
+*.sqlite
+
+# OneDrive/Outros
+../*
