@@ -77,43 +77,40 @@ def login():
 def cliente():
     if 'usuario_id' not in session:
         return redirect(url_for('login'))  # Redireciona se não estiver logado
-    nome = session['usuario_nome']
-    return render_template('cliente.html', nome=nome)
 
-# Logout
-@app.route('/logout')
-def logout():
-    session.clear()
-    return redirect(url_for('login'))
-
-@app.route('/cadastrar_produto', methods=['GET', 'POST'])
-def cadastrar_produto():
-    if 'usuario_tipo' not in session or session['usuario_tipo'] != 'administrador':
-        return redirect(url_for('login'))
-    
     mensagem = None
-    
-    if request.method == 'POST':
-        nome = request.form.get('nome')
-        marca = request.form.get('marca')
-        tipo = request.form.get('tipo')
-        preco = request.form.get('preco')
-        link = request.form.get('link')  # novo campo para imagem
+    usuario_nome = session['usuario_nome']
 
-        try:
-            conexao = ConectarBanco()
-            cursor = conexao.cursor()
-            sql = "INSERT INTO produtos (nome, marca, tipo, preco, link) VALUES (%s, %s, %s, %s, %s)"
-            cursor.execute(sql, (nome, marca, tipo, preco, link))
-            conexao.commit()
-            cursor.close()
-            conexao.close()
-            mensagem = "Produto cadastrado com sucesso!"
-        except my.Error as err:
-            mensagem = f"Erro ao cadastrar produto: {err}"
-    
-    return render_template('cadastrar_produto.html', mensagem=mensagem)
+    try:
+        conexao = ConectarBanco()
+        cursor = conexao.cursor(dictionary=True)
 
+        # Inserir comentário
+        if request.method == 'POST':
+            produto_id = request.form.get('produto_id')
+            texto = request.form.get('texto')
+            if texto.strip():
+                sql_insert = "INSERT INTO comentarios (produto_id, nome_usuario, texto) VALUES (%s, %s, %s)"
+                cursor.execute(sql_insert, (produto_id, usuario_nome, texto))
+                conexao.commit()
+                mensagem = "Comentário enviado com sucesso!"
+
+        # Buscar produtos
+        cursor.execute("SELECT * FROM produtos")
+        produtos = cursor.fetchall()
+
+        # Buscar todos os comentários
+        cursor.execute("SELECT * FROM comentarios ORDER BY id DESC")
+        comentarios = cursor.fetchall()
+
+        cursor.close()
+        conexao.close()
+    except my.Error as err:
+        produtos = []
+        comentarios = []
+        mensagem = f"Erro ao acessar dados: {err}"
+
+    return render_template('cliente.html', produtos=produtos, comentarios=comentarios, mensagem=mensagem, nome=usuario_nome)
 
 
 @app.route('/produtos')

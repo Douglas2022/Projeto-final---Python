@@ -1,74 +1,37 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Site Azul e Vermelho</title>
-    <!-- Bootstrap CSS -->
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-    />
-    <style>
-      body {
-        background-color: #0f79dd; /* fundo azul clarinho */
-      }
-      .navbar {
-        background-color: #0044cc; /* azul escuro */
-      }
-      .navbar .nav-link {
-        color: #ff4444; /* vermelho */
-        font-weight: bold;
-      }
-      .navbar .nav-link:hover {
-        color: #ff0000; /* vermelho mais forte ao passar o mouse */
-      }
-      .container-custom {
-        background-color: #f3097a; /* container vermelho clarinho */
-        padding: 20px;
-        border-radius: 10px;
-        margin-top: 20px;
-      }
-    </style>
-  </head>
-  <body>
-    <div class="container container-custom">
-      <div class="row">
-        <div class="col-10">
-          <h1>Bem-vindo ao site da Loja</h1>
-          <p>Lugar de gente feliz!</p>
-        </div>
-      </div>
-    </div>
+{% extends 'base.html' %}
 
-    <nav class="navbar navbar-expand-lg">
-      <div class="container-fluid">
-        <a class="navbar-brand text-white" href="#"></a>
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarNavAltMarkup"
-          aria-controls="navbarNavAltMarkup"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-          <div class="navbar-nav">
-            <a class="nav-link active" aria-current="page" href="#">Home</a>
-            <a class="nav-link active" aria-current="page" href="#">Página de cadastro</a>
-            <a class="nav-link active" aria-current="page" href="#">Página de produtos</a>
-            <a class="nav-link active" aria-current="page" href="#">Fazer comentários</a>
-            <a class="nav-link active" aria-current="page" href="#">Consultar produtos</a>
-            <a class="nav-link active" aria-current="page" href="#">Sair</a>
-          </div>
-        </div>
-      </div>
-    </nav>
+{% block conteudo %}
+<div class="container">
+    <h2>Lista de Produtos</h2>
 
-    <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-  </body>
-</html>
+    {% if produtos %}
+        <table>
+            <thead>
+                <tr>
+                    <th>Nome</th>
+                    <th>Marca</th>
+                    <th>Preço</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for produto in produtos %}
+                <tr>
+                    <td>{{ produto.nome }}</td>
+                    <td>{{ produto.marca }}</td>
+                    <td>{{ produto.preco }}</td>
+                    <td>
+                        <a href="{{ url_for('editar_produto', id=produto.id) }}">Editar</a>
+                        <a href="{{ url_for('excluir_produto', id=produto.id) }}" onclick="return confirm('Deseja excluir?')">Excluir</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p>Nenhum produto cadastrado.</p>
+    {% endif %}
+
+    <a href="{{ url_for('cadastrar_produto') }}">Cadastrar novo produto</a>
+</div>
+{% endblock %}
