@@ -8,7 +8,7 @@ app.secret_key = 'sua_chave_secreta_aqui'  # Necessário para sessões
 def ConectarBanco():
     return my.connect(
         user='root',
-        password='123456',
+        password='12345',
         database='SuperSelectD',
         host='localhost'
     )
@@ -32,7 +32,7 @@ def cadastro():
         try:
             conexao = ConectarBanco()
             cursor = conexao.cursor()
-            sql = "INSERT INTO usuarios (nome, email, senha, cpf, tipo) VALUES (%s,+ %s, %s, %s, %s)"
+            sql = "INSERT INTO usuarios (nome, email, senha, cpf, tipo) VALUES (%s,%s, %s, %s, %s)"
             cursor.execute(sql, (nome, email, senha, cpf, 'cliente'))  
             conexao.commit()
             cursor.close()
