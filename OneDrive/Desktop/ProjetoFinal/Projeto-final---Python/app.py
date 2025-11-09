@@ -1,4 +1,5 @@
 from flask import Flask, render_template, request, redirect, url_for, session
+import mysql
 import mysql.connector as my
 
 app = Flask(__name__)
@@ -48,26 +49,32 @@ def cadastro():
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     if request.method == 'POST':
-        cpf = request.form.get('cpf')
+        cpf_digitado = request.form.get('cpf').replace('.', '').replace('-', '')
         senha = request.form.get('senha')
 
         conexao = ConectarBanco()
         cursor = conexao.cursor(dictionary=True)
-        cursor.execute('SELECT * FROM usuarios WHERE cpf=%s AND senha=%s', (cpf, senha))
-        usuario = cursor.fetchone()
+        cursor.execute('SELECT * FROM usuarios')
+        usuarios = cursor.fetchall()
         cursor.close()
         conexao.close()
 
+        usuario = None
+        for u in usuarios:
+            cpf_banco = u['cpf'].replace('.', '').replace('-', '')
+            if cpf_banco == cpf_digitado and u['senha'] == senha:
+                usuario = u
+                break
+
         if usuario:
-        
-            session['usuario_id'] = usuario['id']  # Substitua 'id' pelo nome da coluna de ID
+            session['usuario_id'] = usuario['id']
             session['usuario_nome'] = usuario['nome']
             session['usuario_tipo'] = usuario['tipo'].strip().lower()
 
             if session['usuario_tipo'] == 'administrador':
-                return redirect(url_for('cadastrar_produto'))  # Admin vai para cadastrar_produto
+                return redirect(url_for('cadastraProdutos'))
             else:
-                return redirect(url_for('cliente'))  # Cliente vai para cliente
+                return redirect(url_for('cliente'))
         else:
             return render_template('login.html', mensagem="CPF ou senha incorreta.")
 
@@ -156,6 +163,43 @@ def comentarios():
     conexao.close()
 
     return render_template('comentarios.html', comentarios=lista_comentarios, mensagem=mensagem)
+
+
+@app.route('/cadastraProdutos', methods=['GET', 'POST'])
+def cadastraProdutos():
+    conexao = ConectarBanco()
+    cursor = conexao.cursor(dictionary=True)
+    mensagem = None
+
+    if request.method == 'POST':
+        nome = request.form['nome']
+        marca = request.form['marca']
+        tipo = request.form['tipo']
+        preco = request.form['preco']
+        link = request.form['link']
+
+        # Inserir o produto no banco
+        cursor.execute(
+            "INSERT INTO produtos (nome, marca, tipo, preco, link) VALUES (%s, %s, %s, %s, %s)",
+            (nome, marca, tipo, preco, link)
+        )
+        conexao.commit()
+        mensagem = ' Produto cadastrado com sucesso!'
+
+    # Buscar todos os produtos para exibir na tela
+    cursor.execute("SELECT * FROM produtos")
+    produtos = cursor.fetchall()
+
+    cursor.close()
+    conexao.close()
+
+    return render_template('cadastraProdutos.html', mensagem=mensagem, produtos=produtos)
+
+
+
+   
+
+
  
 
 @app.route('/historico')
@@ -184,6 +228,29 @@ def historico():
         print(f"Erro ao buscar histórico: {err}")
 
     return render_template('historico.html', historico=historico_usuario, nome=session['usuario_nome'])
+
+
+
+@app.route('/excluir_produto/<int:id>', methods=['POST'])
+def excluir_produto(id):
+    try:
+        conexao = mysql.connector.connect(
+           user='root',
+            password='12345',
+            database='SuperSelectD',
+            host='localhost'
+        )
+        cursor = conexao.cursor()
+        cursor.execute("DELETE FROM produtos WHERE id = %s", (id,))
+        conexao.commit()
+        cursor.close()
+        conexao.close()
+        return redirect(url_for('cadastraProdutos'))
+    except Exception as e:
+        return f"Erro ao excluir produto: {e}"
+
+
+
 
 @app.route('/logout')
 def logout():
